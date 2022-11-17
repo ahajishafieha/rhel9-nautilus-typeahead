@@ -12,7 +12,7 @@ For more information see [this issue](https://gitlab.gnome.org/GNOME/nautilus/-/
 Grab the .rpm from the release page in this repository and install via dnf:
 
 ```
-# dnf install /path/to/nautilus-<version>.patched.el9.<arch>.rpm /path/to/nautilus-extensions-<version>.patched.el9.<arch>.rpm
+# dnf install /path/to/nautilus-<version>.patched.<dist>.<arch>.rpm /path/to/nautilus-extensions-<version>.patched.<dist>.<arch>.rpm
 ```
 
 ### Manually building from source code
@@ -25,13 +25,13 @@ $ rpmbuild -bb /home/$USER/rpmbuild/SOURCES/nautilus.spec
 Alternatively you can use the pre-patched .src.rpm provided in the release page and build it directly:
 
 ```
-$ rpmbuild --rebuild /path/to/nautilus-<version>.patched.el9.src
+$ rpmbuild --rebuild /path/to/nautilus-<version>.patched.<dist>.src.rpm
 ```
 
 once the build is completed you can install using dnf:
 
 ```
-# dnf install /home/$USER/rpmbuild/RPMS/<arch>/nautilus-<version>.patched.el9.<arch>.rpm /home/$USER/rpmbuild/RPMS/<arch>/nautilus-extensions-<version>.patched.el9.<arch>.rpm
+# dnf install /home/$USER/rpmbuild/RPMS/<arch>/nautilus-<version>.patched.<dist>.<arch>.rpm /home/$USER/rpmbuild/RPMS/<arch>/nautilus-extensions-<version>.patched.<dist>.<arch>.rpm
 ```
 
 ## Usage

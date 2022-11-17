@@ -6,7 +6,7 @@
 
 Name:           nautilus
 Version:        40.2
-Release:        7.patched%{?dist}
+Release:        9.patched%{?dist}
 Summary:        File manager for GNOME
 
 License:        GPLv3+
@@ -29,7 +29,11 @@ Patch7:         file-operations-Fix-progress-when-skipping-during-ex.patch
 Patch8:         compress-dialog-Set-keyboard-focus-on-the-row-with-t.patch
 Patch9:         compress-dialog-controller-Fit-popover-fit-on-X11.patch
 
-Patch10: nautilus-restore-typeahead.patch
+# https://bugzilla.redhat.com/show_bug.cgi?id=2098578
+Patch10:        files-view-Add-menu-item-to-copy-current-path.patch
+Patch11:        files-view-Backport-translations.patch
+
+Patch12:        nautilus-restore-typeahead.patch
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  gcc
@@ -161,8 +165,14 @@ desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/*.desktop
 %doc %{_datadir}/gtk-doc/html/libnautilus-extension/
 
 %changelog
+* Thu Sep 22 2022 Ondrej Holy <oholy@redhat.com> - 40.2-9
+- Backport "_Copy Location" translations (#2099982)
+
+* Mon Jun 20 2022 Ondrej Holy <oholy@redhat.com> - 40.2-8
+- Add toolbar action to copy current location (#2098578)
+
 * Wed Mar 16 2022 Ondrej Holy <oholy@redhat.com> - 40.2-7
-- Update translations for encrypted archives support (#2003134)
+- Update translations for encrypted archives support (#2064754)
 
 * Fri Dec 10 2021 Ondrej Holy <oholy@redhat.com> - 40.2-6
 - Update Persian translation from upstream (#2003134)
